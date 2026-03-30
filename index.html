@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>INTERIOR'O'CITY | Premium Architectural & Interior Design Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefcf8;
+      color: #2c2a29;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .logo h1,
+    .section-title,
+    .feature-card h3,
+    .service-card h3,
+    .testimonial-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+    }
+
+    /* Preloader */
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fefaf5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .preloader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .preloader-text {
+      display: flex;
+      gap: 0.5rem;
+      font-size: 2.2rem;
+      font-weight: 800;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .word {
+      background: linear-gradient(135deg, #b97f44, #9b5e2c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      opacity: 0;
+      transform: translateY(8px);
+      animation: wordReveal 0.5s forwards;
+    }
+
+    .word1 {
+      animation-delay: 0.1s;
+    }
+
+    .word2 {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes wordReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .preloader-dot {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #c38e5a;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: pulseDot 1.2s infinite ease;
+    }
+
+    .dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes pulseDot {
+
+      0%,
+      100% {
+        opacity: 0.3;
+        transform: scale(0.9);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Sticky header */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      background: rgba(254, 252, 248, 0.96);
+      backdrop-filter: blur(14px);
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      position: relative;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: auto;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #b97f44, #9b5e2c);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .logo span {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: #6b5a4e;
+      display: block;
+      margin-top: 2px;
+    }
+
+    .menu-icon {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #b97f44;
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3e3a37;
+      transition: 0.2s;
+      position: relative;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .nav-links li a:after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #c38e5a;
+      transition: width 0.25s ease;
+    }
+
+    .nav-links li a:hover:after {
+      width: 100%;
+    }
+
+    .nav-links li a:hover {
+      color: #b97f44;
+    }
+
+    .nav-links .btn-primary {
+      background-color: #c38e5a;
+      color: white;
+      padding: 0.65rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links .btn-primary:hover {
+      background-color: #a46d3e;
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background-color: #c38e5a;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background-color: #a46d3e;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 22px rgba(163, 109, 58, 0.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #c38e5a;
+      color: #c38e5a;
+      padding: 0.7rem 1.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.25s;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-outline:hover {
+      background: #c38e5a;
+      color: white;
+    }
+
+    .btn-sm {
+      padding: 0.5rem 1.2rem;
+      font-size: 0.85rem;
+      margin-top: 0.75rem;
+      background: transparent;
+      border: 1.5px solid #c38e5a;
+      color: #c38e5a;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-sm:hover {
+      background: #c38e5a;
+      color: white;
+    }
+
+    /* Hero section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+      padding: 3rem 0 4rem;
+    }
+
+    .hero-content {
+      flex: 1;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content .badge {
+      background: #f0e7de;
+      color: #b46f35;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .rating-summary {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 1.5rem 0 1rem;
+      background: #fff6ef;
+      padding: 0.6rem 1.2rem;
+      border-radius: 60px;
+      width: fit-content;
+      flex-wrap: wrap;
+    }
+
+    .stars {
+      color: #f5b042;
+    }
+
+    .hero-image {
+      flex: 1;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-buttons,
+    .catalog-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin: 1rem 0 0.5rem;
+    }
+
+    @media (max-width: 550px) {
+
+      .hero-buttons,
+      .catalog-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-buttons .btn-primary,
+      .hero-buttons .btn-outline,
+      .catalog-buttons .btn-outline {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #7c6e62;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+    }
+
+    /* Services grid with enhanced expandable cards */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 28px;
+      transition: all 0.4s;
+      text-align: left;
+      border: 1px solid #f0e9e2;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .service-card i {
+      font-size: 2.5rem;
+      color: #c38e5a;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card p {
+      color: #5e554b;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-details {
+      margin-top: 0.75rem;
+      padding-left: 0.5rem;
+      border-left: 3px solid #c38e5a;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, margin 0.3s ease;
+    }
+
+    .service-details.show {
+      max-height: 500px;
+      /* enough for content */
+      margin-top: 1rem;
+    }
+
+    .service-details ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .service-details li {
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .service-details li i {
+      font-size: 0.8rem;
+      color: #c38e5a;
+      width: 20px;
+      margin-bottom: 0;
+    }
+
+    .toggle-details {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      align-self: flex-start;
+      margin-top: 1rem;
+      background: none;
+      border: 1px solid #e2d6cc;
+      padding: 0.4rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #b97f44;
+    }
+
+    .toggle-details i {
+      font-size: 0.8rem !important;
+      margin-bottom: 0 !important;
+    }
+
+    .toggle-details:hover {
+      background: #f7efe8;
+      border-color: #c38e5a;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 28px;
+      text-align: center;
+      border: 1px solid #f0e9e2;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .product-item {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+      transition: 0.3s;
+    }
+
+    .product-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 1rem 1.2rem 1.5rem;
+      text-align: center;
+    }
+
+    .hidden-portfolio-item {
+      display: none;
+    }
+
+    .load-more-container {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .review-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 28px;
+      border: 1px solid #efe5dc;
+    }
+
+    .contact-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: #fffbf7;
+      border-radius: 48px;
+      padding: 2rem;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.04);
+      border: 1px solid #f0e2d6;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .info-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .info-detail i {
+      width: 32px;
+      color: #c38e5a;
+      font-size: 1.3rem;
+    }
+
+    .map-container {
+      flex: 1;
+      border-radius: 28px;
+      overflow: hidden;
+      min-height: 280px;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      border: 0;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
+      z-index: 1100;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      max-width: 450px;
+      width: 90%;
+      border-radius: 40px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      margin: 2rem 0 1rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f5efe9;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #2c2a29;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      float: right;
+    }
+
+    footer {
+      background: #1e1b19;
+      color: #cfc6bd;
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col a {
+      color: #cfc6bd;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a:hover {
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .menu-icon {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(254, 252, 248, 0.98);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.8rem 1rem;
+        border-radius: 0 0 28px 28px;
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .hero {
+        flex-direction: column;
+      }
+
+      .contact-wrap {
+        flex-direction: column;
+      }
+
+      section {
+        padding: 3rem 0;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="preloader" id="preloader">
+    <lottie-player src="ani_fixed.json" background="transparent" speed="1" style="width: 300px; height: 300px" loop
+      autoplay></lottie-player>
+    <div class="preloader-text">
+      <span class="word word1">INTERIOR</span>
+      <span class="word word2">O'CITY</span>
+    </div>
+    <div class="preloader-dot">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <div id="quoteModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModalBtn">&times;</button>
+      <i class="fas fa-comment-dots" style="font-size: 2.5rem; color: #c38e5a;"></i>
+      <h3>Get a Quote</h3>
+      <p>Share your vision — our design experts will reach out</p>
+      <div class="modal-buttons">
+        <a href="mailto:interiorocity.bd@gmail.com?subject=Design%20Consultation%20Request&body=Hello%20INTERIOR'O'CITY,%20I'd%20like%20to%20discuss%20a%20project."
+          class="modal-btn email-btn" target="_blank"><i class="fas fa-envelope"></i> Email Us</a>
+        <a href="https://wa.me/8801790739623?text=Hello%20INTERIOR'O'CITY!%20I'm%20interested%20in%20architectural%20or%20interior%20design%20services."
+          class="modal-btn whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="sticky-header">
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">
+          <img src="assets/images/logo.jpg" alt="INTERIOR'O'CITY Logo" class="logo-img">
+          <div class="logo-text">
+            <h1>INTERIOR'O'CITY</h1>
+            <span>Architecture | Interior | 3D Visualization</span>
+          </div>
+        </div>
+        <div class="menu-icon" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="javascript:void(0)" class="btn-primary open-quote-btn">Get a quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="container">
+        <div class="hero">
+          <div class="hero-content">
+            <div class="badge"><i class="fas fa-building"></i> Architectural & Interior Experts</div>
+            <h1>Design spaces that inspire<br>form meets function</h1>
+            <p>Specializing in architectural planning, immersive 3D visualization, and bespoke interior design. From
+              concept to completion — we craft timeless environments for residential, commercial, and hospitality
+              projects.</p>
+            <div class="rating-summary">
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                  class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+              <strong>4.6</strong> <span>(10 Google reviews)</span>
+            </div>
+            <div class="hero-buttons">
+              <a href="javascript:void(0)" class="btn-primary open-quote-btn"><i class="fas fa-comment"></i> Request
+                consultation</a>
+              <a href="https://www.google.com/search?q=INTERIOR%27O%27CITY+Bashtola+Dhaka" target="_blank"
+                class="btn-outline"><i class="fab fa-google"></i> Read Google reviews</a>
+            </div>
+            <div class="catalog-buttons">
+              <a href="assets/catalogs/kitchen_catalog.pdf" target="_blank" class="btn-outline"><i
+                  class="fas fa-download"></i>
+                Kitchen Catalogue</a>
+              <a href="assets/catalogs/hotel_catalog.pdf" target="_blank" class="btn-outline"><i
+                  class="fas fa-download"></i>
+                Hotel Catalogue</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&auto=format"
+              alt="Modern interior architecture">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services with Show More (expandable details) -->
+    <section id="services">
+      <div class="container fade-up">
+        <h2 class="section-title">Our Expertise</h2>
+        <p class="section-sub">Comprehensive architectural, interior, and visualization services tailored to bring your
+          vision to life. Click "Show Details" on each card to explore full offerings.</p>
+        <div class="services-grid" id="servicesGrid">
+          <!-- Architectural Card -->
+          <div class="service-card">
+            <i class="fas fa-drafting-compass"></i>
+            <h3>Architectural Services</h3>
+            <p>Holistic architectural planning from concept to construction documentation, ensuring structural elegance
+              and functionality.</p>
+            <div class="service-details" id="archDetails">
+              <ul>
+                <li><i class="fas fa-check-circle"></i> Concept Design & Planning</li>
+                <li><i class="fas fa-check-circle"></i> Architectural Drawings (Floor Plans, Elevations, Sections)</li>
+                <li><i class="fas fa-check-circle"></i> Building Layout & Space Planning</li>
+                <li><i class="fas fa-check-circle"></i> Construction Documentation</li>
+                <li><i class="fas fa-check-circle"></i> Site Analysis & Consultation</li>
+              </ul>
+            </div>
+            <button class="toggle-details" data-target="archDetails">Show Details <i
+                class="fas fa-chevron-down"></i></button>
+          </div>
+          <!-- Interior Design Card -->
+          <div class="service-card">
+            <i class="fas fa-couch"></i>
+            <h3>Interior Design Services</h3>
+            <p>Tailored interior solutions that blend aesthetics with practicality, from residential to high-end
+              commercial spaces.</p>
+            <div class="service-details" id="interiorDetails">
+              <ul>
+                <li><i class="fas fa-check-circle"></i> Interior Space Planning</li>
+                <li><i class="fas fa-check-circle"></i> Residential & Commercial Interior Design</li>
+                <li><i class="fas fa-check-circle"></i> Furniture Layout & Selection</li>
+                <li><i class="fas fa-check-circle"></i> Lighting Design</li>
+                <li><i class="fas fa-check-circle"></i> Color Consultation & Material Selection</li>
+                <li><i class="fas fa-check-circle"></i> Custom Interior Solutions</li>
+              </ul>
+            </div>
+            <button class="toggle-details" data-target="interiorDetails">Show Details <i
+                class="fas fa-chevron-down"></i></button>
+          </div>
+          <!-- 3D Visualization Card -->
+          <div class="service-card">
+            <i class="fas fa-cube"></i>
+            <h3>3D Visualization Services</h3>
+            <p>Immersive 3D renderings and walkthrough animations that bring your projects to life before construction
+              begins.</p>
+            <div class="service-details" id="vizDetails">
+              <ul>
+                <li><i class="fas fa-check-circle"></i> 3D Exterior Rendering</li>
+                <li><i class="fas fa-check-circle"></i> 3D Interior Rendering</li>
+                <li><i class="fas fa-check-circle"></i> Walkthrough Animation (Interior & Exterior)</li>
+                <li><i class="fas fa-check-circle"></i> 3D Modeling</li>
+                <li><i class="fas fa-check-circle"></i> Realistic Visualization for Projects</li>
+              </ul>
+            </div>
+            <button class="toggle-details" data-target="vizDetails">Show Details <i
+                class="fas fa-chevron-down"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section style="background: #faf6f0;">
+      <div class="container fade-up">
+        <h2 class="section-title">Why Choose INTERIOR'O'CITY?</h2>
+        <p class="section-sub">Precision, creativity, and deep industry expertise. Every project reflects our commitment
+          to excellence.</p>
+        <div class="features-grid">
+          <div class="feature-card"><i class="fas fa-chalkboard-user"></i>
+            <h3>Expert Team</h3>
+            <p>Licensed architects & interior designers with years of experience in residential & commercial sectors.
+            </p>
+          </div>
+          <div class="feature-card"><i class="fas fa-vr-cardboard"></i>
+            <h3>Hyper-Realistic 3D</h3>
+            <p>Cutting-edge walkthrough animations & renderings to visualize your space before execution.</p>
+          </div>
+          <div class="feature-card"><i class="fas fa-hand-sparkles"></i>
+            <h3>End-to-End Service</h3>
+            <p>From concept design to material selection and project handover — we manage everything.</p>
+          </div>
+          <div class="feature-card"><i class="fas fa-smile"></i>
+            <h3>Client Satisfaction</h3>
+            <p>Proven track record with international clients (Malaysia, Khulna, Dhaka) and 4.6⭐ rating.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <div class="container fade-up">
+        <h2 class="section-title">Our Design Portfolio</h2>
+        <p class="section-sub">A glimpse of transformative spaces & realistic 3D work delivered across Bangladesh.</p>
+        <div class="products-grid">
+          <div class="product-item"><img src="assets/images/portfolio/portfolio-1.jpeg" alt="Portfolio Image 1">
+            <div class="product-info">
+              <h4>Elegant Dining Layout</h4>
+            </div>
+          </div>
+          <div class="product-item"><img src="assets/images/portfolio/portfolio-2.jpeg" alt="Portfolio Image 2">
+            <div class="product-info">
+              <h4>Modern Living Room</h4>
+            </div>
+          </div>
+          <div class="product-item"><img src="assets/images/portfolio/portfolio-3.jpeg" alt="Portfolio Image 3">
+            <div class="product-info">
+              <h4>Scenic Balcony Setup</h4>
+            </div>
+          </div>
+          <div class="product-item"><img src="assets/images/portfolio/portfolio-4.jpeg" alt="Portfolio Image 4">
+            <div class="product-info">
+              <h4>Contemporary Lounge</h4>
+            </div>
+          </div>
+          <div class="product-item"><img src="assets/images/portfolio/portfolio-5.jpeg" alt="Portfolio Image 5">
+            <div class="product-info">
+              <h4>Chic Dining Interior</h4>
+            </div>
+          </div>
+          <div class="product-item"><img src="assets/images/portfolio/portfolio-6.jpeg" alt="Portfolio Image 6">
+            <div class="product-info">
+              <h4>Minimalist Open Kitchen</h4>
+            </div>
+          </div>
+          <div class="product-item"><img src="assets/images/portfolio/portfolio-7.jpeg" alt="Portfolio Image 7">
+            <div class="product-info">
+              <h4>Luxury Kitchen Design</h4>
+            </div>
+          </div>
+          <div class="product-item"><img src="assets/images/portfolio/portfolio-8.jpeg" alt="Portfolio Image 8">
+            <div class="product-info">
+              <h4>Spacious Family Room</h4>
+            </div>
+          </div>
+          <div class="product-item"><img src="assets/images/portfolio/portfolio-9.jpeg" alt="Portfolio Image 9">
+            <div class="product-info">
+              <h4>Premium Dining Space</h4>
+            </div>
+          </div>
+          <div class="product-item hidden-portfolio-item"><img src="assets/images/portfolio/portfolio-10.jpeg"
+              alt="Portfolio Image 10">
+            <div class="product-info">
+              <h4>Modern Office Lounge</h4>
+            </div>
+          </div>
+          <div class="product-item hidden-portfolio-item"><img src="assets/images/portfolio/portfolio-11.jpeg"
+              alt="Portfolio Image 11">
+            <div class="product-info">
+              <h4>Executive Meeting Room</h4>
+            </div>
+          </div>
+          <div class="product-item hidden-portfolio-item"><img src="assets/images/portfolio/portfolio-12.jpeg"
+              alt="Portfolio Image 12">
+            <div class="product-info">
+              <h4>Luxury Reception Area</h4>
+            </div>
+          </div>
+          <div class="product-item hidden-portfolio-item"><img src="assets/images/portfolio/portfolio-13.jpeg"
+              alt="Portfolio Image 13">
+            <div class="product-info">
+              <h4>Cozy Bedroom Interior</h4>
+            </div>
+          </div>
+          <div class="product-item hidden-portfolio-item"><img src="assets/images/portfolio/portfolio-14.jpeg"
+              alt="Portfolio Image 14">
+            <div class="product-info">
+              <h4>Walk-in Closet Design</h4>
+            </div>
+          </div>
+          <div class="product-item hidden-portfolio-item"><img src="assets/images/portfolio/portfolio-15.jpeg"
+              alt="Portfolio Image 15">
+            <div class="product-info">
+              <h4>Minimalist Washroom</h4>
+            </div>
+          </div>
+          <div class="product-item hidden-portfolio-item"><img src="assets/images/portfolio/portfolio-16.jpeg"
+              alt="Portfolio Image 16">
+            <div class="product-info">
+              <h4>Grand Staircase Idea</h4>
+            </div>
+          </div>
+          <div class="product-item hidden-portfolio-item"><img src="assets/images/portfolio/portfolio-17.jpeg"
+              alt="Portfolio Image 17">
+            <div class="product-info">
+              <h4>Open Plan Living</h4>
+            </div>
+          </div>
+          <div class="product-item hidden-portfolio-item"><img src="assets/images/portfolio/portfolio-18.jpeg"
+              alt="Portfolio Image 18">
+            <div class="product-info">
+              <h4>Elegant Master Suite</h4>
+            </div>
+          </div>
+          <div class="product-item hidden-portfolio-item"><img src="assets/images/portfolio/portfolio-19.jpeg"
+              alt="Portfolio Image 19">
+            <div class="product-info">
+              <h4>Bespoke Study Room</h4>
+            </div>
+          </div>
+        </div>
+        <div class="load-more-container">
+          <button id="loadMoreBtn" class="btn-outline">Load More Projects <i class="fas fa-arrow-down"
+              style="font-size: 0.8rem; margin-left: 5px;"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+      <div class="container fade-up">
+        <h2 class="section-title">Client Stories</h2>
+        <p class="section-sub">Real feedback from our valued customers — trusted by homeowners and businesses across
+          Dhaka & beyond.</p>
+        <div class="reviews-grid" id="reviewsContainer"></div>
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="https://www.google.com/search?q=INTERIOR%27O%27CITY+Bashtola+Dhaka" target="_blank"
+            class="btn-outline"><i class="fab fa-google"></i> See all 10 reviews on Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="contact">
+      <div class="container fade-up">
+        <div class="contact-wrap">
+          <div class="contact-info">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
+              <img src="assets/images/logo.jpg" alt="Logo" style="height: 40px; width: auto;">
+              <h3 style="margin: 0;">INTERIOR'O'CITY</h3>
+            </div>
+            <div class="info-detail"><i class="fas fa-map-marker-alt"></i><span>Haque villa, Flat-B1, 2nd Floor, Ga-36,
+                Japanese School Road, Bashtola, Shahjadpur, Dhaka - North, Dhaka 1212, Bangladesh</span></div>
+            <div class="info-detail"><i class="fas fa-phone-alt"></i><span>+880 1790 739 623</span></div>
+            <div class="info-detail"><i class="fas fa-envelope"></i><span>interiorocity.bd@gmail.com</span></div>
+            <div class="info-detail"><i class="fas fa-clock"></i><span>Sat–Thu: 10:00 AM – 8:00 PM | Fri: 2:00 PM – 8:00
+                PM</span></div>
+            <div class="info-detail"><i class="fab fa-facebook"></i><a href="https://www.facebook.com/share/1Hxf27Cddr/"
+                target="_blank" style="color: inherit; text-decoration: none;">Facebook Page</a></div>
+            <div style="margin-top: 1.5rem;"><a
+                href="https://maps.google.com/?q=Haque+villa,+Flat-B1,+2nd+Floor,+Ga-36,+Japanese+School+Road,+Bashtola,+Shahjadpur,+Dhaka"
+                target="_blank" class="btn-primary" style="background:#6c4f32;"><i class="fas fa-share-alt"></i> Share
+                location</a></div>
+          </div>
+          <div class="map-container">
+            <iframe
+              src="https://maps.google.com/maps?q=Haque%20villa%2C%20Flat-B1%2C%202nd%20Floor%2C%20Ga-36%2C%20Japanese%20School%20Road%2C%20Bashtola%2C%20Shahjadpur%2C%20Dhaka&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
+            <img src="assets/images/logo.jpg" alt="Logo" style="height: 40px; width: auto;">
+            <h4 style="margin: 0;">INTERIOR'O'CITY</h4>
+          </div>
+          <p>Haque villa, Flat-B1, 2nd Floor, Ga-36, Japanese School Road, Bashtola, Shahjadpur, Dhaka - North, Dhaka
+          </p>
+          <p>Phone: +880 1790 739 623</p>
+          <p>Email: interiorocity.bd@gmail.com</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4><a href="#home">Home</a><a href="#services">Services</a><a
+            href="#portfolio">Portfolio</a><a href="#reviews">Reviews</a><a
+            href="https://www.facebook.com/share/1Hxf27Cddr/" target="_blank"><i class="fab fa-facebook"></i>
+            Facebook</a>
+        </div>
+        <div class="footer-col">
+          <h4>Service Scope</h4><a href="#">Architectural Design</a><a href="#">Interior Design</a><a href="#">3D
+            Walkthrough</a><a href="#">Consultation</a>
+        </div>
+      </div>
+      <div class="copyright">© Copyright 2025 INTERIOR'O'CITY | All Rights Reserved | Crafted with passion for design
+        excellence</div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => { setTimeout(() => { const preloader = document.getElementById('preloader'); if (preloader) preloader.classList.add('hidden'); }, 2000); });
+
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.15 });
+    fadeElements.forEach(el => observer.observe(el));
+
+    // Modal logic
+    const modal = document.getElementById('quoteModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const quoteTriggers = document.querySelectorAll('.open-quote-btn');
+    function openModal() { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { modal.classList.remove('active'); document.body.style.overflow = ''; }
+    quoteTriggers.forEach(btn => btn.addEventListener('click', openModal));
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+      document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('active'); }); });
+    }
+
+    // Show More / Show Less functionality for service details
+    document.querySelectorAll('.toggle-details').forEach(button => {
+      button.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('data-target');
+        const detailsDiv = document.getElementById(targetId);
+        if (detailsDiv) {
+          detailsDiv.classList.toggle('show');
+          const isExpanded = detailsDiv.classList.contains('show');
+          this.innerHTML = isExpanded ? 'Hide Details <i class="fas fa-chevron-up"></i>' : 'Show Details <i class="fas fa-chevron-down"></i>';
+        }
+      });
+    });
+
+    // Catalog functionality updated to direct PDF download/view
+
+    // Load More functionality
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', () => {
+        const hiddenItems = document.querySelectorAll('.hidden-portfolio-item');
+        hiddenItems.forEach(item => {
+          item.classList.remove('hidden-portfolio-item');
+        });
+        loadMoreBtn.style.display = 'none'; // hide the button after loading all
+      });
+    }
+
+    // Reviews data (matching provided info)
+    const reviewsData = [
+      { name: "Robe Khan", time: "5 years ago", text: "This is professional for professional interior design company in Dhaka Bangladesh. I am from Malaysia, I introduced him to many project. Those project are very satisfied with Mr. Mohidduin's work.", stars: 5 },
+      { name: "Naim Hossen", time: "5 years ago", text: "I think it is the best interior design company in Dhaka. I am really excited for their committed services.", stars: 5 },
+      { name: "Mohammad Rafiqul Islam Hawlader", time: "5 years ago", text: "This is professional interior design company in Dhaka Bangladesh. I am from Khulna, I introduced him to three projects. Those projects are very satisfied with Mr. Mohidduin's work.", stars: 5 },
+      { name: "MD Ariful", time: "4 years ago", text: "Outstanding architectural planning and 3D visualization. Highly recommended for modern interior solutions.", stars: 5 },
+      { name: "Farzana Akhter", time: "3 years ago", text: "Excellent attention to detail and creative interior layouts. The team delivered beyond expectations!", stars: 5 },
+      { name: "Shahriar Hossain", time: "2 years ago", text: "Great experience with walkthrough animation and material selection. Very professional.", stars: 4 },
+      { name: "Tahmina Sultana", time: "1 year ago", text: "We hired them for our new office interior. The design was sleek, functional and budget-friendly.", stars: 5 },
+      { name: "Rashedul Karim", time: "6 months ago", text: "Amazing architectural consultancy. Detailed drawings and perfect execution.", stars: 5 },
+      { name: "Sabrina Chowdhury", time: "8 months ago", text: "Best interior design firm in Bashtola area. Very cooperative and responsive!", stars: 5 },
+      { name: "Imran Hasan", time: "3 months ago", text: "Impressive 3D exterior rendering. They captured our vision perfectly. 10/10 service.", stars: 5 }
+    ];
+
+    function renderStars(rating) {
+      let html = '';
+      for (let i = 1; i <= 5; i++) {
+        if (i <= rating) html += '<i class="fas fa-star"></i>';
+        else html += '<i class="far fa-star"></i>';
+      }
+      return html;
+    }
+    function escapeHtml(str) { if (!str) return ''; return str.replace(/[&<>]/g, function (m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
+    const reviewsContainer = document.getElementById('reviewsContainer');
+    if (reviewsContainer) {
+      reviewsData.forEach(r => {
+        const card = document.createElement('div'); card.className = 'review-card';
+        card.innerHTML = `
+        <div style="display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center;">
+          <div class="review-name"><strong>${escapeHtml(r.name)}</strong></div>
+          <div>${renderStars(r.stars)}</div>
+        </div>
+        <div style="font-size:0.75rem; color:#9b8b7c; margin-top:4px;">${escapeHtml(r.time)}</div>
+        <div class="review-text" style="margin-top:0.8rem;">“${escapeHtml(r.text)}”</div>
+      `;
+        reviewsContainer.appendChild(card);
+      });
+    }
+  </script>
+</body>
+
+</html>
