@@ -55,7 +55,15 @@
       z-index: 9999;
       transition: opacity 0.6s ease, visibility 0.6s ease;
       flex-direction: column;
-      gap: 0.5rem;
+    }
+
+    .preloader-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
     }
 
     .preloader.hidden {
@@ -73,7 +81,7 @@
       justify-content: center;
       padding: 0 1rem;
       text-align: center;
-      margin-top: -1rem;
+      margin-top: 0.5rem;
     }
 
     .word {
@@ -789,17 +797,19 @@
 <body>
 
   <div class="preloader" id="preloader">
-    <lottie-player src="ani_fixed.json" background="transparent" speed="1"
-      style="width: 80%; max-width: 300px; aspect-ratio: 1/1;" loop autoplay></lottie-player>
-    <div class="preloader-text">
-      <span class="word word1">Creative</span>
-      <span class="word word2">Design</span>
-      <span class="word word3">Consultants</span>
-    </div>
-    <div class="preloader-dot">
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
+    <div class="preloader-content">
+      <lottie-player src="ani_fixed.json" background="transparent" speed="1"
+        style="width: 80%; max-width: 250px; aspect-ratio: 1/1;" loop autoplay></lottie-player>
+      <div class="preloader-text">
+        <span class="word word1">Creative</span>
+        <span class="word word2">Design</span>
+        <span class="word word3">Consultants</span>
+      </div>
+      <div class="preloader-dot">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
     </div>
   </div>
 
